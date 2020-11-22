@@ -55,7 +55,7 @@ class ProductDetailActivity : AppCompatActivity() {
                     newProduct.price = productPrice.text.toString().toInt()
                     newProduct.amount = productAmount.text.toString().toInt()
                     newProduct.isBought = checkBox.isChecked
-                    productDetailViewModel.updateProduct(currentProduct, newProduct)
+                    productDetailViewModel.addProduct(newProduct)
                 }
                 finish()
             }
