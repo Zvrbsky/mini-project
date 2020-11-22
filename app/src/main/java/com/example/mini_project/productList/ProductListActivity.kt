@@ -59,8 +59,9 @@ class ProductListActivity : AppCompatActivity() {
             intentData?.let { data ->
                 val productName = data.getStringExtra(PRODUCT_NAME)
                 val productPrice = data.getIntExtra(PRODUCT_PRICE, 0)
+                val productAmount = data.getIntExtra(PRODUCT_PRICE, 0)
 
-                productsListViewModel.insertProduct(productName, productPrice, 0, false)
+                productsListViewModel.insertProduct(productName, productPrice, productAmount, false)
             }
         }
     }

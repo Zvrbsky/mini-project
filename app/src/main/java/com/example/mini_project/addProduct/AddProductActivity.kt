@@ -10,10 +10,12 @@ import com.google.android.material.textfield.TextInputEditText
 
 const val PRODUCT_NAME = "name"
 const val PRODUCT_PRICE = "price"
+const val PRODUCT_AMOUNT = "amount"
 
 class AddProductActivity : AppCompatActivity() {
     private lateinit var addProductName: TextInputEditText
     private lateinit var addProductPrice: TextInputEditText
+    private lateinit var addProductAmount: TextInputEditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +26,7 @@ class AddProductActivity : AppCompatActivity() {
         }
         addProductName = findViewById(R.id.add_product_name)
         addProductPrice = findViewById(R.id.add_product_price)
+        addProductAmount = findViewById(R.id.add_product_amount)
     }
 
     private fun addProduct() {
@@ -34,8 +37,10 @@ class AddProductActivity : AppCompatActivity() {
         } else {
             val name = addProductName.text.toString()
             val price = addProductPrice.text.toString().toInt()
+            val amount = addProductAmount.text.toString().toInt()
             resultIntent.putExtra(PRODUCT_NAME, name)
             resultIntent.putExtra(PRODUCT_PRICE, price)
+            resultIntent.putExtra(PRODUCT_AMOUNT, amount)
             setResult(Activity.RESULT_OK, resultIntent)
         }
         finish()
