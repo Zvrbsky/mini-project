@@ -18,7 +18,7 @@ import com.example.mini_project.productList.PRODUCT_ID
 class ProductDetailActivity : AppCompatActivity() {
 
     private val productDetailViewModel by viewModels<ProductDetailViewModel> {
-        ProductDetailViewModelFactory(this)
+        ProductDetailViewModelFactory()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +56,7 @@ class ProductDetailActivity : AppCompatActivity() {
                     newProduct.amount = productAmount.text.toString().toInt()
                     newProduct.isBought = checkBox.isChecked
                     productDetailViewModel.addProduct(newProduct)
+
                 }
                 finish()
             }

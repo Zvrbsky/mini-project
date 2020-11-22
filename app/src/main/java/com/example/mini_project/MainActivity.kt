@@ -19,7 +19,7 @@ import com.google.gson.Gson
 class MainActivity : AppCompatActivity() {
     private val PREFS_NAME = "MyPrefsFile"
     private val productsListViewModel by viewModels<ProductsListViewModel> {
-        ProductsListViewModelFactory(this)
+        ProductsListViewModelFactory()
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun GoToProductListOnClick(view: View) {
+    fun goToProductListOnClick(view: View) {
         val intent = Intent(this, ProductListActivity::class.java)
         startActivity(intent)
     }

@@ -26,13 +26,13 @@ class ProductDetailViewModel(private val datasource: DataSource) : ViewModel() {
     }
 }
 
-class ProductDetailViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
+class ProductDetailViewModelFactory() : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ProductDetailViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return ProductDetailViewModel(
-                datasource = DataSource.getDataSource(context.resources)
+                datasource = DataSource.getDataSource()
             ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")

@@ -7,19 +7,26 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mini_project.ProductApplication
 import com.example.mini_project.R
 import com.example.mini_project.addProduct.AddProductActivity
 import com.example.mini_project.addProduct.PRODUCT_NAME
 import com.example.mini_project.addProduct.PRODUCT_PRICE
 import com.example.mini_project.data.Product
+import com.example.mini_project.db.ProductViewModel
+import com.example.mini_project.db.ProductViewModelFactory
 import com.example.mini_project.productDetail.ProductDetailActivity
+import kotlin.random.Random
 
 const val PRODUCT_ID = "product id"
 
 class ProductListActivity : AppCompatActivity() {
     private val newProductActivityRequestCode = 1
     private val productsListViewModel by viewModels<ProductsListViewModel> {
-        ProductsListViewModelFactory(this)
+        ProductsListViewModelFactory()
+    }
+    private val productsViewModel by viewModels<ProductViewModel> {
+        ProductViewModelFactory((application as ProductApplication).repository)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,7 +69,17 @@ class ProductListActivity : AppCompatActivity() {
                 val productPrice = data.getIntExtra(PRODUCT_PRICE, 0)
                 val productAmount = data.getIntExtra(PRODUCT_PRICE, 0)
 
-                productsListViewModel.insertProduct(productName, productPrice, productAmount, false)
+                if (productName != null){
+                    val product = Product(
+                        Random.nextLong(),
+                        productName,
+                        productPrice,
+                        productAmount,
+                        false)
+
+                    productsListViewModel.insertProduct(product)
+                    productsViewModel.insert(product)
+                }
             }
         }
     }

@@ -1,10 +1,9 @@
 package com.example.mini_project.data
 
-import android.content.res.Resources
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
-class DataSource(resources: Resources) {
+class DataSource() {
     private val initialProductList = mutableListOf<Product>()
     private val productsLiveData = MutableLiveData(initialProductList)
 
@@ -39,13 +38,12 @@ class DataSource(resources: Resources) {
         return productsLiveData
     }
 
-
     companion object {
         private var INSTANCE: DataSource? = null
 
-        fun getDataSource(resources: Resources): DataSource {
+        fun getDataSource(): DataSource {
             return synchronized(DataSource::class) {
-                val newInstance = INSTANCE ?: DataSource(resources)
+                val newInstance = INSTANCE ?: DataSource()
                 INSTANCE = newInstance
                 newInstance
             }
