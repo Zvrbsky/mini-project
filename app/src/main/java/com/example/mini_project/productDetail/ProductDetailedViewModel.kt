@@ -15,14 +15,9 @@ class ProductDetailViewModel(private val datasource: DataSource) : ViewModel() {
     fun removeProduct(product: Product) {
         datasource.removeProduct(product)
     }
-    fun addProduct(product : Product)
-    {
-        datasource.addProduct(product)
-    }
 
-    fun updateProduct(oldProduct: Product, newProduct : Product) {
-        datasource.addProduct(newProduct)
-//        datasource.removeProduct(oldProduct)
+    fun updateProduct(product : Product) {
+        datasource.updateProduct(product)
     }
 }
 

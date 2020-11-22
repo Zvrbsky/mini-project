@@ -39,7 +39,6 @@ class ProductDetailActivity : AppCompatActivity() {
             currentProductId = bundle.getLong(PRODUCT_ID)
         }
 
-
         currentProductId?.let {
             val currentProduct = productDetailViewModel.getProductForId(it)
             productName.text = currentProduct?.name
@@ -55,7 +54,7 @@ class ProductDetailActivity : AppCompatActivity() {
                     newProduct.price = productPrice.text.toString().toInt()
                     newProduct.amount = productAmount.text.toString().toInt()
                     newProduct.isBought = checkBox.isChecked
-                    productDetailViewModel.addProduct(newProduct)
+                    productDetailViewModel.updateProduct(newProduct)
 
                 }
                 finish()

@@ -27,6 +27,17 @@ class DataSource() {
         }
     }
 
+    fun updateProduct(product: Product) {
+        val currentList = productsLiveData.value
+        if (currentList != null) {
+            val oldProduct = getProductForId(product.id)
+            val updatedList = currentList.toMutableList()
+            updatedList.remove(oldProduct)
+            updatedList.add(0, product)
+            productsLiveData.postValue(updatedList)
+        }
+    }
+
     fun getProductForId(id: Long): Product? {
         productsLiveData.value?.let { products ->
             return products.firstOrNull{ it.id == id}
