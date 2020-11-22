@@ -19,4 +19,8 @@
     <string name="_3">3</string>
     <string name="no">no</string>
     <string name="add_amount">Add amount</string>
+    <string name="update_product">Update Product</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="is_bought">Is Bought?</string>
 </resources>

@@ -12,6 +12,7 @@ import com.example.mini_project.addProduct.AddProductActivity
 import com.example.mini_project.addProduct.PRODUCT_NAME
 import com.example.mini_project.addProduct.PRODUCT_PRICE
 import com.example.mini_project.data.Product
+import com.example.mini_project.productDetail.ProductDetailActivity
 
 const val PRODUCT_ID = "product id"
 
@@ -42,9 +43,9 @@ class ProductListActivity : AppCompatActivity() {
     }
 
     private fun adapterOnClick(product: Product) {
-//        val intent = Intent(this, ProductDetailActivity()::class.java)
-//        intent.putExtra(PRODUCT_ID, product.id)
-//        startActivity(intent)
+        val intent = Intent(this, ProductDetailActivity()::class.java)
+        intent.putExtra(PRODUCT_ID, product.id)
+        startActivity(intent)
     }
 
     private fun fabOnClick() {

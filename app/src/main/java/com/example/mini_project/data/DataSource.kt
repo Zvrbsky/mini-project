@@ -28,6 +28,13 @@ class DataSource(resources: Resources) {
         }
     }
 
+    fun updateProduct(product: Product) {
+        val oldProduct = getProductForId(product.id)
+        oldProduct?.let{ removeProduct(it)}
+        addProduct(product)
+
+    }
+
     fun getProductForId(id: Long): Product? {
         productsLiveData.value?.let { products ->
             return products.firstOrNull{ it.id == id}
