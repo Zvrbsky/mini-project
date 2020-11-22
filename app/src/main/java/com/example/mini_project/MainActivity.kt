@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mini_project.addProduct.AddProductActivity
 import com.example.mini_project.data.Product
 import com.example.mini_project.productList.ProductListActivity
 import com.example.mini_project.productList.ProductsListViewModel
 import com.example.mini_project.productList.ProductsListViewModelFactory
+import com.example.mini_project.settings.SettingActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
@@ -28,10 +30,20 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+
+        val fab: View = findViewById(R.id.fab)
+        fab.setOnClickListener {
+            fabOnClick()
+        }
     }
 
     fun GoToProductListOnClick(view: View) {
         val intent = Intent(this, ProductListActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun fabOnClick() {
+        val intent =  Intent(this, SettingActivity::class.java)
         startActivity(intent)
     }
 
@@ -53,4 +65,5 @@ class MainActivity : AppCompatActivity() {
             productsListViewModel.insertProduct(Gson().fromJson(product, Product::class.java))
         }
     }
+
 }
