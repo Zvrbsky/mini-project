@@ -71,6 +71,7 @@ class ProductDetailActivity : AppCompatActivity() {
             removeProductButton.setOnClickListener {
                 if (currentProduct != null) {
                     productDetailViewModel.removeProduct(currentProduct)
+                    productsViewModel.delete(currentProduct)
                 }
                 finish()
             }

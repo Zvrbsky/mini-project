@@ -18,6 +18,10 @@ class DataSource() {
         }
     }
 
+    fun initWithProducts(products: List<Product>) {
+        productsLiveData.postValue(products.toMutableList())
+    }
+
     fun removeProduct(product: Product) {
         val currentList = productsLiveData.value
         if (currentList != null) {

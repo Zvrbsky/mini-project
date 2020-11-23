@@ -14,6 +14,10 @@ class ProductsListViewModel(val dataSource: DataSource) : ViewModel() {
     fun insertProduct(product: Product) {
         dataSource.addProduct(product)
     }
+
+    fun initWithProducts(products: List<Product>) {
+        dataSource.initWithProducts(products)
+    }
 }
 
 class ProductsListViewModelFactory() : ViewModelProvider.Factory {

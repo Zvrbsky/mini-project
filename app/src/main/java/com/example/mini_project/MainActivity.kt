@@ -35,6 +35,14 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener {
             fabOnClick()
         }
+
+        val settings = getSharedPreferences(PREFS_NAME, 0)
+        val setOfProducts = settings.getStringSet("Data", mutableSetOf())
+        val listOfProducts = mutableListOf<Product>()
+        setOfProducts?.forEach{ product: String ->
+            listOfProducts.add(Gson().fromJson(product, Product::class.java))
+        }
+        productsListViewModel.initWithProducts(listOfProducts)
     }
 
     fun goToProductListOnClick(view: View) {
@@ -47,8 +55,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    override fun onPause() {
-        super.onPause()
+    override fun onDestroy() {
+        super.onDestroy()
         val settings = getSharedPreferences(PREFS_NAME, 0)
         val setOfProducts =  mutableSetOf<String>()
         productsListViewModel.productsLiveData.value?.forEach { product: Product -> setOfProducts.add(Gson().toJson(product)) }
@@ -57,13 +65,4 @@ class MainActivity : AppCompatActivity() {
         editor.putStringSet("Data", setOfProducts)
         editor.commit()
     }
-
-    override fun onResume() {
-        super.onResume()
-        val settings = getSharedPreferences(PREFS_NAME, 0)
-        settings.getStringSet("Data", mutableSetOf())?.forEach{ product: String ->
-            productsListViewModel.insertProduct(Gson().fromJson(product, Product::class.java))
-        }
-    }
-
 }
