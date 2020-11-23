@@ -12,6 +12,16 @@ class ProductViewModel(private val repository: ProductRepository) : ViewModel() 
         val productEntity = ProductEntity(product.id, product.name, product.price, product.amount, product.isBought)
         repository.insert(productEntity)
     }
+
+    fun update(product: Product) = viewModelScope.launch {
+        val productEntity = ProductEntity(product.id, product.name, product.price, product.amount, product.isBought)
+        repository.update(productEntity)
+    }
+
+    fun delete(product: Product) = viewModelScope.launch {
+        val productEntity = ProductEntity(product.id, product.name, product.price, product.amount, product.isBought)
+        repository.delete(productEntity)
+    }
 }
 
 class ProductViewModelFactory(private val repository: ProductRepository) : ViewModelProvider.Factory {

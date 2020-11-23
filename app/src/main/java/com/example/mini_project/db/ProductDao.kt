@@ -1,9 +1,6 @@
 package com.example.mini_project.db
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -14,6 +11,12 @@ interface ProductDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(product: ProductEntity)
+
+    @Update(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun update(product: ProductEntity)
+
+    @Delete
+    suspend fun delete(product: ProductEntity)
 
     @Query("DELETE FROM product_table")
     suspend fun deleteAll()

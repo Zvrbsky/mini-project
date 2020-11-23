@@ -12,4 +12,16 @@ class ProductRepository(private val productDao: ProductDao) {
     suspend fun insert(product: ProductEntity) {
         productDao.insert(product)
     }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun update(product: ProductEntity) {
+        productDao.update(product)
+    }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun delete(product: ProductEntity) {
+        productDao.delete(product)
+    }
 }
