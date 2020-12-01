@@ -5,8 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mini_project.BuildConfig
 import com.example.mini_project.R
 import com.google.android.material.textfield.TextInputEditText
+
 
 const val PRODUCT_NAME = "name"
 const val PRODUCT_PRICE = "price"
@@ -16,6 +18,7 @@ class AddProductActivity : AppCompatActivity() {
     private lateinit var addProductName: TextInputEditText
     private lateinit var addProductPrice: TextInputEditText
     private lateinit var addProductAmount: TextInputEditText
+    private val NEW_PRODUCT_ADDED_BROADCAST = "NEW_PRODUCT_ADDED_BROADCAST"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +33,7 @@ class AddProductActivity : AppCompatActivity() {
     }
 
     private fun addProduct() {
-        val resultIntent = Intent()
+        val resultIntent = Intent(NEW_PRODUCT_ADDED_BROADCAST)
 
         if (addProductName.text.isNullOrEmpty() || addProductPrice.text.isNullOrEmpty()) {
             setResult(Activity.RESULT_CANCELED, resultIntent)
@@ -42,6 +45,7 @@ class AddProductActivity : AppCompatActivity() {
             resultIntent.putExtra(PRODUCT_PRICE, price)
             resultIntent.putExtra(PRODUCT_AMOUNT, amount)
             setResult(Activity.RESULT_OK, resultIntent)
+            sendBroadcast(resultIntent)
         }
         finish()
     }
