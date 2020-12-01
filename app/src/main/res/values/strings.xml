@@ -23,4 +23,7 @@
     <string name="update">Update</string>
     <string name="delete">Delete</string>
     <string name="is_bought">Is Bought?</string>
+    <string name="product_list">Product List</string>
+    <string name="price">price</string>
+    <string name="amount">amount</string>
 </resources>

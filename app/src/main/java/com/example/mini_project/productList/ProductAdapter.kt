@@ -19,7 +19,7 @@ class ProductAdapter (private val onClick: (Product) -> Unit):
         private val nameTextView: TextView = itemView.findViewById(R.id.product_name)
         private val priceTextView: TextView = itemView.findViewById(R.id.product_price)
         private val amountTextView: TextView = itemView.findViewById(R.id.product_amount)
-        private val isBoughtTextView: TextView = itemView.findViewById(R.id.product_isBought)
+        private val isBoughtImageView: ImageView = itemView.findViewById(R.id.product_isBought)
         private var currentProduct: Product? = null
 
         init {
@@ -38,11 +38,11 @@ class ProductAdapter (private val onClick: (Product) -> Unit):
             amountTextView.text = product.amount.toString()
             if (product.isBought)
             {
-                isBoughtTextView.text = "Yes"
+                isBoughtImageView.setImageResource(android.R.drawable.checkbox_on_background)
             }
             else
             {
-                isBoughtTextView.text = "No"
+                isBoughtImageView.setImageResource(android.R.drawable.checkbox_off_background)
             }
         }
     }
