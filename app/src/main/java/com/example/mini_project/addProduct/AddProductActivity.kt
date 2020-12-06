@@ -18,7 +18,6 @@ class AddProductActivity : AppCompatActivity() {
     private lateinit var addProductName: TextInputEditText
     private lateinit var addProductPrice: TextInputEditText
     private lateinit var addProductAmount: TextInputEditText
-    private val NEW_PRODUCT_ADDED_BROADCAST = "NEW_PRODUCT_ADDED_BROADCAST"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +32,7 @@ class AddProductActivity : AppCompatActivity() {
     }
 
     private fun addProduct() {
-        val resultIntent = Intent(NEW_PRODUCT_ADDED_BROADCAST)
+        val resultIntent = Intent()
 
         if (addProductName.text.isNullOrEmpty() || addProductPrice.text.isNullOrEmpty()) {
             setResult(Activity.RESULT_CANCELED, resultIntent)
@@ -45,7 +44,6 @@ class AddProductActivity : AppCompatActivity() {
             resultIntent.putExtra(PRODUCT_PRICE, price)
             resultIntent.putExtra(PRODUCT_AMOUNT, amount)
             setResult(Activity.RESULT_OK, resultIntent)
-            sendBroadcast(resultIntent)
         }
         finish()
     }

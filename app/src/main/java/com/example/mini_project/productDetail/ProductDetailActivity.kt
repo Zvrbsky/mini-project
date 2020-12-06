@@ -1,19 +1,13 @@
 package com.example.mini_project.productDetail
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mini_project.ProductApplication
 import com.example.mini_project.R
-import com.example.mini_project.addProduct.PRODUCT_AMOUNT
-import com.example.mini_project.addProduct.PRODUCT_NAME
-import com.example.mini_project.addProduct.PRODUCT_PRICE
 import com.example.mini_project.db.ProductViewModel
 import com.example.mini_project.db.ProductViewModelFactory
 import com.example.mini_project.productList.PRODUCT_ID
@@ -55,24 +49,20 @@ class ProductDetailActivity : AppCompatActivity() {
 
 
             updateProductButton.setOnClickListener {
-                if (currentProduct != null) {
-                    var newProduct = currentProduct.copy()
-                    newProduct.name = productName.text.toString()
-                    newProduct.price = productPrice.text.toString().toInt()
-                    newProduct.amount = productAmount.text.toString().toInt()
-                    newProduct.isBought = checkBox.isChecked
-                    productDetailViewModel.updateProduct(newProduct)
-                    productsViewModel.update(newProduct)
+                val newProduct = currentProduct.copy()
+                newProduct.name = productName.text.toString()
+                newProduct.price = productPrice.text.toString().toInt()
+                newProduct.amount = productAmount.text.toString().toInt()
+                newProduct.isBought = checkBox.isChecked
+                productDetailViewModel.updateProduct(newProduct)
+                productsViewModel.update(newProduct)
 
-                }
                 finish()
             }
 
             removeProductButton.setOnClickListener {
-                if (currentProduct != null) {
-                    productDetailViewModel.removeProduct(currentProduct)
-                    productsViewModel.delete(currentProduct)
-                }
+                productDetailViewModel.removeProduct(currentProduct)
+                productsViewModel.delete(currentProduct)
                 finish()
             }
         }

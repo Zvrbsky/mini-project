@@ -1,12 +1,19 @@
 package com.example.mini_project
 
+import android.app.PendingIntent
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mini_project.addProduct.AddProductActivity
 import com.example.mini_project.data.Product
+import com.example.mini_project.productDetail.ProductDetailActivity
+import com.example.mini_project.productList.PRODUCT_ID
 import com.example.mini_project.productList.ProductListActivity
 import com.example.mini_project.productList.ProductsListViewModel
 import com.example.mini_project.productList.ProductsListViewModelFactory
@@ -16,11 +23,15 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 
 
+const val SHOW_PRODUCT_DETAILS_BROADCAST = "BROADCAST_RECEIVER.SHOW_PRODUCT_DETAILS_BROADCAST"
+
 class MainActivity : AppCompatActivity() {
     private val PREFS_NAME = "MyPrefsFile"
     private val productsListViewModel by viewModels<ProductsListViewModel> {
         ProductsListViewModelFactory()
     }
+    lateinit var receiver: BroadcastReceiver
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -43,6 +54,18 @@ class MainActivity : AppCompatActivity() {
             listOfProducts.add(Gson().fromJson(product, Product::class.java))
         }
         productsListViewModel.initWithProducts(listOfProducts)
+
+        receiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                val respIntent =  Intent(context, ProductDetailActivity::class.java)
+                val productId =  intent?.getLongExtra(PRODUCT_ID, 0)
+                Log.d("MainActivity", "Broadcast received for product with id: $productId")
+                respIntent.putExtra(PRODUCT_ID,  productId)
+                startActivity(respIntent)
+            }
+        }
+        registerReceiver(receiver,
+                IntentFilter(SHOW_PRODUCT_DETAILS_BROADCAST))
     }
 
     fun goToProductListOnClick(view: View) {
@@ -57,6 +80,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        unregisterReceiver(receiver)
         val settings = getSharedPreferences(PREFS_NAME, 0)
         val setOfProducts =  mutableSetOf<String>()
         productsListViewModel.productsLiveData.value?.forEach { product: Product -> setOfProducts.add(Gson().toJson(product)) }

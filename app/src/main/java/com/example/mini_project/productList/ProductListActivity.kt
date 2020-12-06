@@ -3,6 +3,7 @@ package com.example.mini_project.productList
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,7 @@ import com.example.mini_project.productDetail.ProductDetailActivity
 import kotlin.random.Random
 
 const val PRODUCT_ID = "product id"
+const val NEW_PRODUCT_ADDED_BROADCAST = "SHOPPING_LIST_APP.NEW_PRODUCT_ADDED_BROADCAST"
 
 class ProductListActivity : AppCompatActivity() {
     private val newProductActivityRequestCode = 1
@@ -68,10 +70,11 @@ class ProductListActivity : AppCompatActivity() {
                 val productName = data.getStringExtra(PRODUCT_NAME)
                 val productPrice = data.getIntExtra(PRODUCT_PRICE, 0)
                 val productAmount = data.getIntExtra(PRODUCT_PRICE, 0)
+                val productId = Random.nextLong()
 
                 if (productName != null){
                     val product = Product(
-                        Random.nextLong(),
+                        productId,
                         productName,
                         productPrice,
                         productAmount,
@@ -79,6 +82,14 @@ class ProductListActivity : AppCompatActivity() {
 
                     productsListViewModel.insertProduct(product)
                     productsViewModel.insert(product)
+
+                    val broadcastIntent = Intent(NEW_PRODUCT_ADDED_BROADCAST)
+                    broadcastIntent.putExtra(PRODUCT_NAME, productName)
+
+                    Log.d("ProductListActivity", "Broadcast sent for product with id: $productId")
+                    broadcastIntent.putExtra(PRODUCT_ID, productId)
+
+                    sendBroadcast(broadcastIntent)
                 }
             }
         }
