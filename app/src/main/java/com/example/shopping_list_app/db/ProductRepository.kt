@@ -1,4 +1,4 @@
-package com.example.mini_project.db
+package com.example.shopping_list_app.db
 
 import androidx.annotation.WorkerThread
 import kotlinx.coroutines.flow.Flow

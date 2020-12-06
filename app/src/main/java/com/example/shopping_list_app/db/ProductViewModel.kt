@@ -1,9 +1,9 @@
-package com.example.mini_project.db
+package com.example.shopping_list_app.db
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.example.mini_project.data.Product
+import com.example.shopping_list_app.data.Product
 import kotlinx.coroutines.launch
 
 class ProductViewModel(private val repository: ProductRepository) : ViewModel() {

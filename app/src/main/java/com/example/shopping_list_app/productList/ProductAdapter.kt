@@ -1,4 +1,4 @@
-package com.example.mini_project.productList
+package com.example.shopping_list_app.productList
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mini_project.R
-import com.example.mini_project.data.Product
+import com.example.shopping_list_app.R
+import com.example.shopping_list_app.data.Product
 
 class ProductAdapter (private val onClick: (Product) -> Unit):
     ListAdapter<Product, ProductAdapter.ProductViewHolder>(ProductDiffCallback){

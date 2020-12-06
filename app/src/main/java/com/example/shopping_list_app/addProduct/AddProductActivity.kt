@@ -1,12 +1,11 @@
-package com.example.mini_project.addProduct
+package com.example.shopping_list_app.addProduct
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mini_project.BuildConfig
-import com.example.mini_project.R
+import com.example.shopping_list_app.R
 import com.google.android.material.textfield.TextInputEditText
 
 

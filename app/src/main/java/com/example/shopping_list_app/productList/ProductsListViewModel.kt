@@ -1,11 +1,9 @@
-package com.example.mini_project.productList
+package com.example.shopping_list_app.productList
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.mini_project.data.DataSource
-import com.example.mini_project.data.Product
-import kotlin.random.Random
+import com.example.shopping_list_app.data.DataSource
+import com.example.shopping_list_app.data.Product
 
 class ProductsListViewModel(val dataSource: DataSource) : ViewModel() {
 

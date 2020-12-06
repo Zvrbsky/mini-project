@@ -1,8 +1,8 @@
-package com.example.mini_project
+package com.example.shopping_list_app
 
 import android.app.Application
-import com.example.mini_project.db.ProductRepository
-import com.example.mini_project.db.ProductRoomDatabase
+import com.example.shopping_list_app.db.ProductRepository
+import com.example.shopping_list_app.db.ProductRoomDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 

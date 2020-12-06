@@ -1,6 +1,5 @@
-package com.example.mini_project
+package com.example.shopping_list_app
 
-import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -10,20 +9,19 @@ import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mini_project.addProduct.AddProductActivity
-import com.example.mini_project.data.Product
-import com.example.mini_project.productDetail.ProductDetailActivity
-import com.example.mini_project.productList.PRODUCT_ID
-import com.example.mini_project.productList.ProductListActivity
-import com.example.mini_project.productList.ProductsListViewModel
-import com.example.mini_project.productList.ProductsListViewModelFactory
-import com.example.mini_project.settings.SettingActivity
+import com.example.shopping_list_app.data.Product
+import com.example.shopping_list_app.productDetail.ProductDetailActivity
+import com.example.shopping_list_app.productList.PRODUCT_ID
+import com.example.shopping_list_app.productList.ProductListActivity
+import com.example.shopping_list_app.productList.ProductsListViewModel
+import com.example.shopping_list_app.productList.ProductsListViewModelFactory
+import com.example.shopping_list_app.settings.SettingActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 
 
-const val SHOW_PRODUCT_DETAILS_BROADCAST = "BROADCAST_RECEIVER.SHOW_PRODUCT_DETAILS_BROADCAST"
+const val SHOW_PRODUCT_DETAILS_BROADCAST = "NOTIFICATION_APP.SHOW_PRODUCT_DETAILS_BROADCAST"
 
 class MainActivity : AppCompatActivity() {
     private val PREFS_NAME = "MyPrefsFile"

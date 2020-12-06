@@ -1,10 +1,9 @@
-package com.example.mini_project.productDetail
+package com.example.shopping_list_app.productDetail
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.mini_project.data.DataSource
-import com.example.mini_project.data.Product
+import com.example.shopping_list_app.data.DataSource
+import com.example.shopping_list_app.data.Product
 
 class ProductDetailViewModel(private val datasource: DataSource) : ViewModel() {
 

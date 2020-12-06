@@ -1,4 +1,4 @@
-package com.example.mini_project.productDetail
+package com.example.shopping_list_app.productDetail
 
 import android.os.Bundle
 import android.widget.Button
@@ -6,11 +6,11 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mini_project.ProductApplication
-import com.example.mini_project.R
-import com.example.mini_project.db.ProductViewModel
-import com.example.mini_project.db.ProductViewModelFactory
-import com.example.mini_project.productList.PRODUCT_ID
+import com.example.shopping_list_app.ProductApplication
+import com.example.shopping_list_app.R
+import com.example.shopping_list_app.db.ProductViewModel
+import com.example.shopping_list_app.db.ProductViewModelFactory
+import com.example.shopping_list_app.productList.PRODUCT_ID
 
 class ProductDetailActivity : AppCompatActivity() {
 

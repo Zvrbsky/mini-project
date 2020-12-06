@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mini_project">
+    package="com.example.shopping_list_app">
 
     <application
-        android:name=".ProductApplication"
+        android:name="com.example.shopping_list_app.ProductApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Miniproject">
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.shopping_list_app.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Miniproject.NoActionBar">
             <intent-filter>
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".productList.ProductListActivity"
+            android:name="com.example.shopping_list_app.productList.ProductListActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Miniproject.NoActionBar">
             <intent-filter>
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".addProduct.AddProductActivity"
+            android:name="com.example.shopping_list_app.addProduct.AddProductActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Miniproject.NoActionBar">
             <intent-filter>
@@ -41,7 +41,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".productDetail.ProductDetailActivity"
+            android:name="com.example.shopping_list_app.productDetail.ProductDetailActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Miniproject.NoActionBar">
             <intent-filter>
@@ -51,7 +51,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".settings.SettingActivity"
+            android:name="com.example.shopping_list_app.settings.SettingActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Miniproject.NoActionBar">
             <intent-filter>

@@ -1,4 +1,4 @@
-package com.example.mini_project.productList
+package com.example.shopping_list_app.productList
 
 import android.app.Activity
 import android.content.Intent
@@ -8,15 +8,15 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mini_project.ProductApplication
-import com.example.mini_project.R
-import com.example.mini_project.addProduct.AddProductActivity
-import com.example.mini_project.addProduct.PRODUCT_NAME
-import com.example.mini_project.addProduct.PRODUCT_PRICE
-import com.example.mini_project.data.Product
-import com.example.mini_project.db.ProductViewModel
-import com.example.mini_project.db.ProductViewModelFactory
-import com.example.mini_project.productDetail.ProductDetailActivity
+import com.example.shopping_list_app.ProductApplication
+import com.example.shopping_list_app.R
+import com.example.shopping_list_app.addProduct.AddProductActivity
+import com.example.shopping_list_app.addProduct.PRODUCT_NAME
+import com.example.shopping_list_app.addProduct.PRODUCT_PRICE
+import com.example.shopping_list_app.data.Product
+import com.example.shopping_list_app.db.ProductViewModel
+import com.example.shopping_list_app.db.ProductViewModelFactory
+import com.example.shopping_list_app.productDetail.ProductDetailActivity
 import kotlin.random.Random
 
 const val PRODUCT_ID = "product id"

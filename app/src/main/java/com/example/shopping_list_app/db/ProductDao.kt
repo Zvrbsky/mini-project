@@ -1,4 +1,4 @@
-package com.example.mini_project.db
+package com.example.shopping_list_app.db
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow

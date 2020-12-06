@@ -1,4 +1,4 @@
-package com.example.mini_project.data
+package com.example.shopping_list_app.data
 
 data class Product (
     val id : Long,
